@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="user1" namespace="/user" extends="struts-default">
+		<action name="userdata" class="com.zhiyou100.web.action.UserAction" method="userdata">
+			<result>/WEB-INF/view/user/index.jsp</result>
+		</action>
+		<action name="logout" class="com.zhiyou100.web.action.UserAction" method="logout">
+			<result type="redirectAction">
+				<param name="actionName">index</param>
+				<param name="namespace">/visitor1</param>
+			</result>
+		</action>
+		<action name="profile" class="com.zhiyou100.web.action.UserAction" method="profile">
+			<result>/WEB-INF/view/user/profile.jsp</result>
+		</action>
+		<action name="avatar" class="com.zhiyou100.web.action.UserAction" method="avatar">
+			<result>/WEB-INF/view/user/avatar.jsp</result>
+		</action>
+		<action name="password" class="com.zhiyou100.web.action.UserAction" method="password">
+			<result>/WEB-INF/view/user/password.jsp</result>
+		</action>
+		<action name="*" class="com.zhiyou100.web.action.UserAction" method="{1}">
+			<result type="redirectAction">
+				<param name="actionName">userdata</param>
+				<param name="namespace">/user</param>
+			</result>
+		</action>
+		
+	</package>
+	<package name="user2" namespace="/user/ajax" extends="json-default">
+		<action name="altpassword" class="com.zhiyou100.web.action.UserAction" method="altpassword">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

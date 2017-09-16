@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="admincensus" namespace="/admin/census" extends="struts-default">
+		<action name="show" class="com.zhiyou100.web.action.CensusAction" method="show">
+			<result>/WEB-INF/view/census/census.jsp</result>
+		</action>
+	</package>
+	
+</struts>

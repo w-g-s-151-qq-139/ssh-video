@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="showvideo" namespace="/visitor/showvideo" extends="struts-default">
+		<action name="index" class="com.zhiyou100.web.action.ShowVideoAction" method="courseindex">
+			<result>/WEB-INF/view/course/index.jsp</result>
+		</action>
+		<action name="video*" class="com.zhiyou100.web.action.ShowVideoAction" method="{1}">
+			<result name="index">/WEB-INF/view/video/index.jsp</result>
+			<result name="content">/WEB-INF/view/video/content.jsp</result>
+		</action>
+	</package>
+</struts>

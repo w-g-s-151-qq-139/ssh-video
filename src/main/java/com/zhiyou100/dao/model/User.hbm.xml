@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping package="com.zhiyou100.dao.model">
+    	<class name="User" table="user">
+    		<id name="id">
+    			<generator class="native"></generator>
+    		</id>
+    		<property name="birthday" column="birthday"></property>
+    		<property name="city" column="city"></property>
+    		<property name="email" column="email"></property>
+    		<property name="headUrl" column="head_url"></property>
+    		<property name="insertTime" column="insert_time"></property>
+    		<property name="nickName" column="nick_name"></property>
+    		<property name="password"></property>
+    		<property name="province"></property>
+    		<property name="sex"></property>
+    		<property name="updateTime" column="update_time"></property>
+    	</class>
+    </hibernate-mapping>

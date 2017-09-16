@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="admin1" namespace="/admin/video" extends="struts-default">
+		<action name="search_search" class="com.zhiyou100.web.action.VideoAction"
+			method="search">
+			<result name="success">/WEB-INF/view/video/video.jsp</result>
+		</action>
+		<action name="alt_*" class="com.zhiyou100.web.action.VideoAction" method="{1}">
+			<result>/WEB-INF/view/video/addvideo.jsp</result>
+		</action>
+		<action name="deloradd_*" class="com.zhiyou100.web.action.VideoAction" method="{1}">
+			<result type="redirectAction">
+				<param name="actionName">search_search</param>
+				<param name="namespace">/admin/video</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>

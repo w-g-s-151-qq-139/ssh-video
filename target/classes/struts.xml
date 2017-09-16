@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 后缀路径  -->
+	<constant name="struts.action.extension" value="action,do,"></constant>
+	<!-- <constant name="struts.objectFactory" value="spring"></constant> -->
+	<package name="MyInterceptors" extends="struts-default" abstract="true">
+		<interceptors>
+			<interceptor name="MyInterceptor" class="com.zhiyou100.dao.utils.MyInterceptor">
+			</interceptor>
+			<interceptor-stack name="Mystack">
+				<interceptor-ref name="MyInterceptor">
+					<param name="excludeMethods">login,register</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		<default-interceptor-ref name="Mystack"/>
+		<global-results>
+			<result name="login">/index.jsp</result>
+		</global-results>
+	</package>
+	<include file="com/zhiyou100/web/action/struts-admin.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-video.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-speaker.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-course.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-census.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-visitor.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-user.xml"></include>
+	<include file="com/zhiyou100/web/action/struts-showvideo.xml"></include>
+	
+</struts>

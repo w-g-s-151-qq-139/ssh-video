@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="adminspeaker" namespace="/admin/speaker" extends="struts-default">
+		<action name="search" class="com.zhiyou100.web.action.SpeakerAction"
+			method="search">
+			<result name="success">/WEB-INF/view/lecturer/lecturer.jsp</result>
+		</action>
+		<action name="altspeaker" class="com.zhiyou100.web.action.SpeakerAction" method="alt">
+			<result>/WEB-INF/view/lecturer/addlecturer.jsp</result>
+		</action>
+		<action name="deloradd_*" class="com.zhiyou100.web.action.SpeakerAction" method="{1}">
+			<result type="redirectAction">
+				<param name="actionName">search</param>
+				<param name="namespace">/admin/speaker</param>
+			</result>
+		</action>
+	</package>
+</struts>

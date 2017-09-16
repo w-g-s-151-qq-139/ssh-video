@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="welcome-file" namespace="" extends="struts-default">
+		<action name="">
+			<result type="redirectAction">
+				<param name="actionName">index</param>
+				<param name="namespace">/visitor1</param>
+			</result>
+		</action>
+	 </package>
+	<package name="visitor" namespace="/visitor1" extends="struts-default">
+		<action name="index" class="com.zhiyou100.web.action.VisitorAction" method="index">
+			<result>/WEB-INF/view/qiantai/index.jsp</result>
+		</action>
+		<action name="forget_pwd" class="com.zhiyou100.web.action.VisitorAction" method="forget_pwd">
+			<result>/WEB-INF/view/user/forget_pwd.jsp</result>
+		</action>
+		<action name="reset_pwd" class="com.zhiyou100.web.action.VisitorAction" method="reset_pwd">
+			<result>/WEB-INF/view/user/reset_pwd.jsp</result>
+		</action>
+		<action name="resetpwd" method="resetpwd" class="com.zhiyou100.web.action.VisitorAction">
+			<result type="redirectAction">
+			<param name="actionName">index</param>
+				<param name="namespace">/visitor1</param>
+			</result>
+		</action>
+	</package>
+	<package name="visitor2" namespace="/visitor" extends="json-default">
+		<action name="*" class="com.zhiyou100.web.action.VisitorAction" method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>
